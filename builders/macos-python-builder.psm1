@@ -59,7 +59,7 @@ class macOSPythonBuilder : NixPythonBuilder {
         ### Solution is to install these libraries from a third-party package manager,
         ### and then add the appropriate paths for the header and library files to configure command.
         ### Link to documentation (https://cpython-devguide.readthedocs.io/setup/#build-dependencies)
-        if ($this.Version -lt "3.7.0") {
+        if ($this.Version -lt "3.7.0" -or "3.7.3") {
             $env:LDFLAGS = "-L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/zlib/lib"
             $env:CFLAGS = "-I/usr/local/opt/openssl@1.1/include -I/usr/local/opt/zlib/include"
         } else {
